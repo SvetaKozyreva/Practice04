@@ -49,16 +49,17 @@ namespace Example
                 box.Input();
                 boxers.Add(box);
             }
+            string filepath = "C:\\Users\\svtko\\OneDrive\\Робочий стіл\\Boxers.txt";
 
             XmlSerializer xmlS = new XmlSerializer(typeof(List<Boxer>));
 
-            using (FileStream fs = new FileStream("C:\\Users\\svtko\\OneDrive\\Робочий стіл\\Person.txt", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(filepath, FileMode.OpenOrCreate))
             {
                 xmlS.Serialize(fs, boxers);
                 Console.WriteLine("Object has been serialized");
             }
 
-            using (FileStream fs = new FileStream("C:\\Users\\svtko\\OneDrive\\Робочий стіл\\Person.txt", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(filepath, FileMode.OpenOrCreate))
             {
                 List<Boxer>? dboxers = xmlS.Deserialize(fs) as List<Boxer>;
                 for (int i = 0; i < 3; i++)
