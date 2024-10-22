@@ -30,7 +30,7 @@ namespace Practice04
             }
 
             // десеріалізуємо об'єкт
-            using (FileStream fs = new FileStream("filepath", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(filepath, FileMode.OpenOrCreate))
             {
                 Person? dperson = xmlSerializer.Deserialize(fs) as Person;
                 Console.WriteLine($"Name: {dperson?.Name}  Age: {dperson?.Age}");
